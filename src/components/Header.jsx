@@ -1,0 +1,40 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
+const Header = () => {
+   const[showMenu, setShowMenu]= useState(false);
+  return (
+    <>
+      <header className="header" id="header">
+      <nav className="nav container">
+        <Link to="/" className="nav__logo">Tra<span>vlr</span></Link>
+
+        <div className={`nav__menu ${showMenu ? 'show-menu' : ""}`} id="nav-menu">
+          <ul className="nav__list">
+            <li className="nav__item">
+              <Link to="/" className="nav__link active">Home</Link>
+            </li>
+            <li className="nav__item">
+              <Link to="/about" className="nav__link">About</Link>
+            </li>
+            <li className="nav__item">
+              <Link to="/tour-package" className="nav__link">Tour Package</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="nav__toggle" onClick={() => setShowMenu(!showMenu) }>
+        <FontAwesomeIcon icon={faBars} />
+        </div>
+      </nav>
+    </header>
+
+    
+
+    </>
+  );
+}
+
+export default Header;
